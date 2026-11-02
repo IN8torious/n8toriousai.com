@@ -68,6 +68,28 @@
   footer{border-top:1px solid var(--line);margin-top:60px;padding:28px 22px 44px;text-align:center;color:var(--dim);font-size:14px;line-height:2}
   footer a{color:var(--dim);text-decoration:none;border-bottom:1px dotted var(--line)}
   footer a:hover{color:var(--ink)}
+button.enter{cursor:pointer;font:inherit}
+.enter.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.starthere{max-width:900px;margin:26px auto 0;padding:22px 24px;border:1px solid var(--line);background:var(--panel)}
+.starthere h2{margin:0 0 10px;font-size:26px}
+.starthere p{color:var(--ink);line-height:1.55;margin:0 0 10px}
+.starthere a{color:var(--red)}
+.startbtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.downloads{max-width:900px;margin:34px auto 0}
+.dlh{font-size:26px;margin:0 0 6px}
+.dlrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 4px;border-bottom:1px solid var(--panel2)}
+.dlinfo{flex:1 1 260px;display:flex;flex-direction:column;gap:2px}
+.dlinfo b{font-size:17px}
+.dlinfo span{color:var(--dim);font-size:13.5px}
+.chip{font-size:11px;letter-spacing:1.5px;padding:4px 8px;border:1px solid var(--line);color:var(--dim)}
+.chip.ok{color:#7ee2a0;border-color:#2c5b3e}
+.chip.pre{color:#f2c14e;border-color:#6b5518}
+#tourbar{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;max-width:920px;width:calc(100% - 24px);background:#101013;border:1px solid var(--red);padding:14px 16px;display:none;gap:12px;align-items:center;box-shadow:0 12px 40px rgba(0,0,0,.55)}
+#tourbar.on{display:flex}
+#tourbar p{flex:1;margin:0;line-height:1.45;font-size:15px}
+#tourbar .tbtn{background:transparent;color:var(--ink);border:1px solid var(--line);padding:10px 14px;cursor:pointer;font:inherit;letter-spacing:1px}
+#tourbar .tbtn.next{background:var(--red);border-color:var(--red);color:#fff;font-weight:700}
+.tourhl{outline:2px solid var(--red);outline-offset:6px}
 </style>
 </head>
 <body>
@@ -86,8 +108,20 @@
       <span>Harakiri OS</span><i>·</i><span>Capsule Ecology</span><i>·</i><span>Temple</span><i>·</i><span>PoeTchi</span><br>
       <span>Operating Systems</span><i>·</i><span>Windows Tools</span><i>·</i><span>Programming Languages</span><i>·</i><span>AI Agents</span>
     </div>
+    <button class="enter ghost" id="startBtn" type="button">START HERE</button>
     <a class="enter" href="#proof">ENTER THE TOOLBOX</a>
     <div class="warn"><b>WARNING:</b> Experimental software ahead — operating systems, AI tools, and programming languages, all built by one person. Nothing here asks you for an account.</div>
+  </div>
+</section>
+
+<section class="starthere" id="starthere" hidden>
+  <h2>What am I looking at?</h2>
+  <p><b>N8torious AI is one developer's software ecosystem</b> — real, downloadable programs: a Bible app, Windows tools, operating-system kernels, programming languages of his own design, and AI agents that work under written rules. Everything runs locally. No accounts, no ads, no trackers.</p>
+  <p><b>Why the galaxy?</b> The spinning world above is one of the programs — a living map of this ecosystem. Each planet is a real kernel or agent, explained in plain language below. The galaxy is the map, not the front door.</p>
+  <p><b>What can I use today?</b> The <a href="#downloads">Available right now</a> list: Temple for Android, the CapsuleOS playbook, the Capsule Ecology pre-release, and the public agent kit.</p>
+  <div class="startbtns">
+    <button class="enter" id="tourBtn" type="button">TAKE THE 30-SECOND TOUR</button>
+    <button class="enter ghost" id="closeStart" type="button">CLOSE</button>
   </div>
 </section>
 
@@ -107,6 +141,31 @@
     <div><span class="n">66</span><span class="l">Books of the Bible, fully offline, in one app</span></div>
     <div><span class="n">0</span><span class="l">Trackers, ads, or accounts in anything shipped</span></div>
   </div>
+
+  <section class="downloads" id="downloads">
+    <h2 class="dlh">Available right now</h2>
+    <div class="dlrow">
+      <div class="dlinfo"><b>Temple — Daily Bible</b><span>Android · the whole Bible, fully offline</span></div>
+      <span class="chip ok">SHIPPED</span>
+      <a class="enter" href="temple-1.0.apk" download>DOWNLOAD APK</a>
+    </div>
+    <div class="dlrow">
+      <div class="dlinfo"><b>CapsuleOS Playbook</b><span>Windows settings — every change checked, gated, and undoable</span></div>
+      <span class="chip ok">RELEASED</span>
+      <a class="enter" href="capsuleos.apbx" download>DOWNLOAD</a>
+      <a class="enter ghost" href="https://github.com/IN8torious/CapsuleOS">GITHUB</a>
+    </div>
+    <div class="dlrow">
+      <div class="dlinfo"><b>Capsule Ecology</b><span>The native Windows app — tweaks, repair, models with lineage</span></div>
+      <span class="chip pre">PRE-RELEASE</span>
+      <a class="enter" href="https://github.com/IN8torious/CapsuleEcology/releases/tag/v0.1.0-pre">GET IT ON GITHUB</a>
+    </div>
+    <div class="dlrow">
+      <div class="dlinfo"><b>N8torious Agent Toolbox</b><span>The public kit — build your own governed agent crew</span></div>
+      <span class="chip ok">PUBLIC KIT</span>
+      <a class="enter" href="https://github.com/IN8torious/n8torious-ai_portfolio/releases/tag/v2.0.0">THE v2.0.0 RELEASE</a>
+    </div>
+  </section>
 
   <div class="mapwrap">
     <svg viewBox="0 0 900 330" role="img" aria-label="Map of the N8torious ecosystem">
@@ -272,5 +331,49 @@
   Sovereign software. Built solo. Owned by its users.
 </footer>
 
+<div id="tourbar" role="dialog" aria-label="Site tour">
+  <p id="tourtext"></p>
+  <button class="tbtn" id="tourBack" type="button">BACK</button>
+  <button class="tbtn next" id="tourNext" type="button">NEXT</button>
+  <button class="tbtn" id="tourExit" type="button">EXIT</button>
+</div>
+<script>
+(function(){
+  var panel = document.getElementById('starthere');
+  document.getElementById('startBtn').addEventListener('click', function(){
+    panel.hidden = false;
+    panel.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+  document.getElementById('closeStart').addEventListener('click', function(){ panel.hidden = true; });
+  var steps = [
+    {sel:'.stage', text:'The world. A living 3D galaxy — and a real program, not a picture. Each planet is a kernel or an agent listed below. Drag to look around; nothing here needs decoding to use the site.'},
+    {sel:'.receipts', text:'The receipts. Every number is counted from shipped work — lines released, automated checks passed, kernels built, books offline. Nothing shown here is theoretical.'},
+    {sel:'#downloads', text:'What you can download, today. A Bible app, a Windows playbook, a Windows app pre-release, and the public agent kit. No mystery, no lore — just the list.'},
+    {sel:'article.project', text:'The systems, one by one, in plain language: what each is, why it exists, and the proof behind it.'},
+    {sel:null, text:'You now understand the map. The rest is exploration.'}
+  ];
+  var bar = document.getElementById('tourbar'), txt = document.getElementById('tourtext');
+  var nextBtn = document.getElementById('tourNext'), backBtn = document.getElementById('tourBack');
+  var i = -1, hl = null;
+  function clearHl(){ if (hl) { hl.classList.remove('tourhl'); hl = null; } }
+  function show(n){
+    i = n; clearHl();
+    var s = steps[i];
+    txt.textContent = s.text;
+    backBtn.style.visibility = i === 0 ? 'hidden' : 'visible';
+    nextBtn.textContent = i === steps.length - 1 ? 'DONE' : 'NEXT';
+    if (s.sel) {
+      var el = document.querySelector(s.sel);
+      if (el) { el.classList.add('tourhl'); hl = el; el.scrollIntoView({behavior:'smooth', block:'center'}); }
+    }
+  }
+  function end(){ bar.classList.remove('on'); clearHl(); i = -1; }
+  document.getElementById('tourBtn').addEventListener('click', function(){ panel.hidden = true; bar.classList.add('on'); show(0); });
+  nextBtn.addEventListener('click', function(){ if (i >= steps.length - 1) { end(); } else { show(i + 1); } });
+  backBtn.addEventListener('click', function(){ if (i > 0) { show(i - 1); } });
+  document.getElementById('tourExit').addEventListener('click', end);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && i >= 0) { end(); } });
+})();
+</script>
 </body>
 </html>

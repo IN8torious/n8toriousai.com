@@ -1,6 +1,6 @@
 {
   "format": "site-telemetry/1",
-  "generated": "2026-11-02T21:08:48Z",
+  "generated": "2026-11-02T21:21:47Z",
   "site": {
     "domain": "n8toriousai.com",
     "owner": "Nathan Brown \u2014 a solo developer from Brunswick, Ohio (brand: N8toriousAi)",
@@ -10,8 +10,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 22556,
-      "sha256": "f16d4895d5ddec25",
+      "bytes": 29452,
+      "sha256": "71a99f2a7c7fc72f",
       "role": "The page. Act 1: framed world stage (nothing overlays the world). Act 2: the proof \u2014 stats strip + one article per project."
     },
     {

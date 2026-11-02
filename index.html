@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>N8torious AI — Enter</title>
+<meta name="description" content="Operating systems, Windows tools, a Bible app, programming languages, and AI agents — built solo by Nathan Brown, a solo developer from Brunswick, Ohio. Local, privacy-first, no accounts. Wonder first. Proof second.">
+<style>
+  :root{
+    --bg:#050505; --panel:#0b0b0d; --line:#26262b; --ink:#f2f0eb; --dim:#a7a49b;
+    --crimson:#e5484d; --crimson-deep:#8f1d22; --gold:#d8b46a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--ink)}
+
+  /* ---------- ACT 1 : THE WORLD — framed stage, nothing overlays it ---------- */
+  .world{background:var(--bg)}
+  .brandbar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+    padding:14px 22px;background:var(--panel);border-bottom:1px solid var(--line)}
+  .brand{font-family:Verdana,Geneva,sans-serif;font-size:12px;letter-spacing:.42em;color:var(--ink)}
+  .brand b{color:var(--crimson)}
+  .brandbar a{font-family:Verdana,Geneva,sans-serif;font-size:11px;letter-spacing:.18em;color:var(--dim);text-decoration:none}
+  .brandbar a:hover{color:var(--ink)}
+  .stage{position:relative;height:60vh;height:60svh;background:#000;border-bottom:1px solid var(--line)}
+  .stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .actionstrip{display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 16px 26px;text-align:center;background:var(--bg)}
+  .names{font-family:Verdana,Geneva,sans-serif;font-size:clamp(10px,2.4vw,12px);letter-spacing:.3em;line-height:2;color:var(--dim);text-transform:uppercase}
+  .names span{white-space:nowrap}
+  .names i{color:var(--crimson);font-style:normal;padding:0 .4em}
+  .enter{display:inline-block;padding:15px 42px;border:1px solid var(--crimson);
+    color:var(--ink);text-decoration:none;font-family:Verdana,Geneva,sans-serif;font-size:13px;letter-spacing:.38em;
+    background:var(--crimson-deep);transition:background .2s,border-color .2s}
+  .enter:hover{background:var(--crimson);border-color:var(--ink)}
+  .warn{font-family:Verdana,Geneva,sans-serif;font-size:10px;letter-spacing:.14em;line-height:1.9;color:var(--dim);max-width:520px}
+  .warn b{color:var(--gold);font-weight:normal}
+  @media(max-width:640px){.stage{height:52vh;height:52svh}.names{letter-spacing:.16em;line-height:2.2}.names span{white-space:normal}}
+
+  /* ---------- ACT 2 : THE PROOF ---------- */
+  .proof{max-width:1060px;margin:0 auto;padding:72px 22px 30px}
+  .kicker{font-family:Verdana,Geneva,sans-serif;font-size:11px;letter-spacing:.34em;color:var(--crimson);text-transform:uppercase}
+  h1{font-size:clamp(30px,5.4vw,50px);font-weight:normal;line-height:1.12;margin:14px 0 10px}
+  .lede{color:var(--dim);font-size:clamp(16px,2.4vw,19px);line-height:1.65;max-width:720px}
+  .receipts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:38px 0 8px}
+  .receipts div{background:var(--panel);padding:18px 16px}
+  .receipts .n{display:block;font-size:26px;color:var(--ink)}
+  .receipts .l{display:block;margin-top:6px;font-family:Verdana,Geneva,sans-serif;font-size:10px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;line-height:1.7}
+  .mapwrap{margin:44px 0 6px;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 40%,#101014 0%,#070708 70%);padding:26px 10px 10px}
+  .mapwrap svg{width:100%;height:auto;display:block}
+  .mapnote{text-align:center;color:var(--dim);font-size:14px;padding:10px 16px 18px;line-height:1.6}
+
+  .project{border:1px solid var(--line);background:var(--panel);margin:34px 0;padding:28px 26px}
+  .project h2{font-size:clamp(24px,4vw,34px);font-weight:normal}
+  .project h2 .tag{font-family:Verdana,Geneva,sans-serif;font-size:10px;letter-spacing:.24em;color:var(--crimson);vertical-align:super;margin-left:10px}
+  .cols{display:grid;grid-template-columns:1fr;gap:18px;margin-top:14px}
+  @media(min-width:820px){.cols{grid-template-columns:1.15fr .85fr}}
+  .cols p,.wide p{color:var(--dim);line-height:1.7;font-size:16px;margin-bottom:12px}
+  .cols p b,.wide p b{color:var(--ink);font-weight:normal}
+  .wide{margin-top:14px}
+  .arch{font-family:Verdana,Geneva,sans-serif;font-size:11.5px;line-height:2;color:var(--dim);border-left:2px solid var(--crimson-deep);padding-left:14px}
+  .arch b{color:var(--ink);font-weight:normal;letter-spacing:.08em}
+  .shot{width:100%;border:1px solid var(--line);display:block}
+  .links{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+  .links a{font-family:Verdana,Geneva,sans-serif;font-size:11px;letter-spacing:.16em;text-decoration:none;border:1px solid var(--line);padding:10px 16px;color:var(--ink)}
+  .links a:hover{border-color:var(--crimson);color:var(--crimson)}
+  .links a.primary{border-color:var(--crimson);background:var(--crimson-deep);color:#fff}
+  footer{border-top:1px solid var(--line);margin-top:60px;padding:28px 22px 44px;text-align:center;color:var(--dim);font-size:14px;line-height:2}
+  footer a{color:var(--dim);text-decoration:none;border-bottom:1px dotted var(--line)}
+  footer a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ACT 1 — THE WORLD. Framed stage: bar above, actions below, nothing on top of it. -->
+<section class="world">
+  <div class="brandbar">
+    <div class="brand">N8TORIOUS <b>AI</b></div>
+    <a href="#proof">SKIP TO PROOF ↓</a>
+  </div>
+  <div class="stage">
+    <iframe src="world.html" title="The N8torious world — a living 3D galaxy of kernels and languages" loading="eager"></iframe>
+  </div>
+  <div class="actionstrip">
+    <div class="names">
+      <span>Harakiri OS</span><i>·</i><span>Capsule Ecology</span><i>·</i><span>Temple</span><i>·</i><span>PoeTchi</span><br>
+      <span>Operating Systems</span><i>·</i><span>Windows Tools</span><i>·</i><span>Programming Languages</span><i>·</i><span>AI Agents</span>
+    </div>
+    <a class="enter" href="#proof">ENTER THE TOOLBOX</a>
+    <div class="warn"><b>WARNING:</b> Experimental software ahead — operating systems, AI tools, and programming languages, all built by one person. Nothing here asks you for an account.</div>
+  </div>
+</section>
+
+<!-- ACT 2 — THE PROOF. No mystery. -->
+<main class="proof" id="proof">
+  <div class="kicker">The Proof</div>
+  <h1>It isn't a demo. It's an ecosystem — and it ships.</h1>
+  <p class="lede">Every system below is built, tested, and released by a solo developer from Brunswick, Ohio —
+  whose top priority is local, privacy-first applications.
+  The numbers are counted, not rounded. The code is public. The receipts are in the releases.</p>
+
+  <div class="receipts">
+    <div><span class="n">27,811</span><span class="l">Lines of code in the v2.0.0 release alone</span></div>
+    <div><span class="n">19,652</span><span class="l">Automated checks run on the PoeTchi kernel — zero failures</span></div>
+    <div><span class="n">10</span><span class="l">Kernels built — the newest, Nimbusis, boots as a real OS</span></div>
+    <div><span class="n">29</span><span class="l">Programming languages of his own design</span></div>
+    <div><span class="n">66</span><span class="l">Books of the Bible, fully offline, in one app</span></div>
+    <div><span class="n">0</span><span class="l">Trackers, ads, or accounts in anything shipped</span></div>
+  </div>
+
+  <div class="mapwrap">
+    <svg viewBox="0 0 900 330" role="img" aria-label="Map of the N8torious ecosystem">
+      <g stroke="#3a3a41" stroke-width="1.5">
+        <line x1="450" y1="86" x2="450" y2="140"/>
+        <line x1="450" y1="140" x2="170" y2="140"/><line x1="170" y1="140" x2="170" y2="196"/>
+        <line x1="450" y1="140" x2="450" y2="196"/>
+        <line x1="450" y1="140" x2="730" y2="140"/><line x1="730" y1="140" x2="730" y2="196"/>
+        <line x1="170" y1="252" x2="450" y2="292"/><line x1="450" y1="252" x2="450" y2="292"/><line x1="730" y1="252" x2="450" y2="292"/>
+      </g>
+      <g font-family="Verdana,Geneva,sans-serif" text-anchor="middle">
+        <rect x="330" y="30" width="240" height="56" fill="#0b0b0d" stroke="#e5484d"/>
+        <text x="450" y="55" fill="#f2f0eb" font-size="15" letter-spacing="3">HARAKIRI OS</text>
+        <text x="450" y="74" fill="#a7a49b" font-size="10" letter-spacing="2">THE OPERATING SYSTEM</text>
+        <rect x="60" y="196" width="220" height="56" fill="#0b0b0d" stroke="#26262b"/>
+        <text x="170" y="221" fill="#f2f0eb" font-size="13" letter-spacing="2">CAPSULE</text>
+        <text x="170" y="239" fill="#a7a49b" font-size="10" letter-spacing="1">WINDOWS TOOLS + 3D WORLDS</text>
+        <rect x="340" y="196" width="220" height="56" fill="#0b0b0d" stroke="#26262b"/>
+        <text x="450" y="221" fill="#f2f0eb" font-size="13" letter-spacing="2">THE CREW</text>
+        <text x="450" y="239" fill="#a7a49b" font-size="10" letter-spacing="1">AI AGENTS WITH WRITTEN RULES</text>
+        <rect x="620" y="196" width="220" height="56" fill="#0b0b0d" stroke="#26262b"/>
+        <text x="730" y="221" fill="#f2f0eb" font-size="13" letter-spacing="2">WORLD ENGINE</text>
+        <text x="730" y="239" fill="#a7a49b" font-size="10" letter-spacing="1">RAIGINE · PAINTR · RAVENEYE</text>
+        <rect x="320" y="292" width="260" height="34" fill="#0b0b0d" stroke="#d8b46a"/>
+        <text x="450" y="314" fill="#f2f0eb" font-size="12" letter-spacing="2">POETCHI KERNEL</text>
+      </g>
+    </svg>
+    <div class="mapnote">These are not separate repos. They are pieces of the same machine — the kernel at the bottom, the OS on top, worlds and agents running on both.</div>
+  </div>
+
+  <article class="project">
+    <h2>Temple — Daily Bible<span class="tag">SHIPPED · ANDROID</span></h2>
+    <div class="wide">
+      <p><b>What it is.</b> The complete Bible — 66 books, 1,189 chapters, 31,098 verses — in one offline Android app. Daily verse and prayer, verse tools, prayer lists, reading plans.</p>
+      <p><b>Why it exists.</b> A church app that answers to no server: no account, no ads, no analytics. Your scripture and your prayers never leave the phone.</p>
+      <div class="arch"><b>ARCHITECTURE</b><br>One-file app in a native Android shell · sharing stays locked inside the app · the only network feature is opt-in weather, and only when you tap it · every release build is checked — package, code, and signature — before it ships.</div>
+      <div class="links">
+        <a class="primary" href="temple-1.0.apk">DOWNLOAD THE APK</a>
+        <a href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/temple">SOURCE</a>
+        <a href="privacy.html">PRIVACY</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="project">
+    <h2>Toolbox Bible<span class="tag">FREE · ANDROID + TOOLBOX</span></h2>
+    <div class="wide">
+      <p><b>What it is.</b> A free Bible for the toolbox: the complete World English Bible, all 31,098 verses, rendered in the traditional Christian wording — "God" where some modern translations print a transliterated name. It ships as its own Android app and inside the toolbox, fully offline.</p>
+      <p><b>Why it exists.</b> Scripture in the kit should be free, complete, and readable — no account, no ads, nothing phoning home.</p>
+      <div class="arch"><b>AUDIT</b><br>Every one of the 6,880 name changes is accounted for, verse by verse — the changed set matches the name set exactly, with zero leftover and zero doubled words. The New Testament text is byte-identical to its source; only the Old Testament rendering changed.</div>
+    </div>
+  </article>
+
+  <article class="project">
+    <h2>Capsule Toolbox<span class="tag">PRE-RELEASE · WINDOWS</span></h2>
+    <div class="wide">
+      <p><b>What it is.</b> A Windows companion built on one rule: you can read it, you decide, it cannot do more than it says. It includes a privacy-hardened web browser, a 3D voxel home world, a studio for building 3D scenes, a forge that inspects game-mod packages without ever running them, and plain-language performance advice. An optional Linux layer runs approved AI models on your own machine — tested with real inference. The AI agents can only propose; a human approves; nothing runs free-form.</p>
+      <p><b>Why it exists.</b> Most Windows tools ask for blind trust. The Toolbox shows every change as a named, described item before you approve it — and its own status page labels every feature Working, Prototype, or Not verified.</p>
+      <div class="arch"><b>ITS PLAYBOOK — CAPSULEOS</b><br>Now at version 0.2.2: 85 options, 619 actions — every one behind its own checkbox, every change with an undo, security features never touched. It also installs a repair toolkit that runs Microsoft's own DISM/SFC repair sequence, so a CapsuleOS machine can fix its own Windows image. The first release was independently audited before publication; the audit caught a packaging format the installer would have rejected, and what shipped is the corrected rebuild. A load test of the current build is still owed, and the repo says so.</div>
+      <div class="links">
+        <a class="primary" href="capsuleos.apbx">DOWNLOAD THE PLAYBOOK</a>
+        <a href="https://github.com/IN8torious/CapsuleOS">THE REPO</a>
+        <a href="https://github.com/IN8torious/CapsuleOS/blob/main/VERIFICATION.md">THE AUDIT</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="project">
+    <h2>Capsule Ecology<span class="tag">PRE-RELEASE · WINDOWS</span></h2>
+    <div class="wide">
+      <p><b>What it is.</b> The Toolbox grown into a native Windows application — one real program, no web shell. System tweaks bound by written rules, with a restore point demanded before the first change. Curated app packs installed for you through winget and Chocolatey (Microsoft's app installer and the community package manager) — starting with Add Back Edge, which restores the browser other tools delete. Repairs use Microsoft's own DISM/SFC sequence, with a restore-point manager and before/after snapshots of your system. And AI models you adopt like living things: downloaded from their original source, every file hash-checked, then copied and changed freely — with the family tree kept.</p>
+      <p><b>Why it exists.</b> Everyone else sells optimization. Capsule sells verifiability — not "trust me," but "inspect it." Every change is a proposal; every result is a receipt in a hash-chained ledger you can verify.</p>
+      <div class="arch"><b>VERIFICATION</b><br>The code compiles with 0 errors · its tweak list matches the shipped CapsuleOS 0.2.2 playbook exactly — 619 changes, 618 with an undo · its receipt ledger matches the SI Core's format exactly: test records pass, tampered histories fail · model files are verified the same way their source verifies them. What has not been run yet — the Windows build itself — is listed in the repo with the tests it must pass, not passed over.</div>
+      <div class="links">
+        <a class="primary" href="https://github.com/IN8torious/CapsuleEcology/releases/tag/v0.1.0-pre">THE PRE-RELEASE</a>
+        <a href="https://github.com/IN8torious/CapsuleEcology">THE REPO</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="project">
+    <h2>The SI Core<span class="tag">THE RULES ENGINE</span></h2>
+    <div class="cols">
+      <div>
+        <p><b>What it is.</b> The rulebook and engine behind every AI agent here. One simple law: an agent proposes a change, using a permission it was actually given, and the result is written into a permanent record. Nothing acts without leaving a receipt. It comes in several visual forms — a sphere (the Ball), layered shells (the Onion), and the full assembly (the Complete Prototype).</p>
+        <p><b>Why it exists.</b> Because AI agents need a constitution, not good intentions. People are the source of authority; software never is. Every action leaves a record that cannot be quietly rewritten.</p>
+        <div class="arch"><b>HOW IT WORKS</b><br>One shared engine with a tamper-evident record chain · notes on the map gain weight from the records behind them — counted by formula, never by hand · physics steers the motion; the law decides the outcome.</div>
+        <div class="links">
+          <a class="primary" href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/si-core">THE BUILDS</a>
+          <a href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/si-constitutional-kernel">THE KERNEL</a>
+        </div>
+      </div>
+      <div><img class="shot" src="img/ball.png" alt="The Ball — the SI Core as a geodesic lattice sphere" loading="lazy"></div>
+    </div>
+  </article>
+
+  <article class="project">
+    <h2>PoeTchi Kernel<span class="tag">v1.1 · BUILT IN ZIG</span></h2>
+    <div class="cols">
+      <div>
+        <p><b>What it is.</b> An operating-system kernel written from scratch in the Zig language, designed so AI agents are built into the system itself — the SI Core's rules, a desktop, and hands for the agents to act with.</p>
+        <p><b>Why it exists.</b> To prove an operating system can be built for AI agents on bare metal — every decision made by a readable equation you can test.</p>
+        <div class="arch"><b>PROOF</b><br>19,652 automated checks, 0 failures · reasoning tests pass 24 out of 24 · anything not yet proven is written down as owed — never passed off as done.</div>
+        <div class="links">
+          <a class="primary" href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/poetchi-zig">SOURCE + PROOF CARDS</a>
+        </div>
+      </div>
+      <div><img class="shot" src="img/prototype.png" alt="The Complete Prototype — the SI Core assembled" loading="lazy"></div>
+    </div>
+  </article>
+
+  <article class="project">
+    <h2>Nimbusis<span class="tag">A REAL OS · x86_64</span></h2>
+    <div class="wide">
+      <p><b>What it is.</b> A real operating system, built from the PoeTchi kernel work: it boots on standard PC hardware architecture (x86_64), runs programs in protected rings, and stores files on disk. Its agents are ordinary user programs holding permission tokens — never part of the kernel itself. The name is his coinage: nimbus + nemesis, "nimble nemesis," carrying the Raijin storm theme.</p>
+      <p><b>Why it exists.</b> The kernels before it were theses. This one is the OS itself — the SI Core's constitution (people authorize; software never does) enforced by the machine, with every state change leaving a receipt.</p>
+      <div class="arch"><b>PROOF</b><br>Boot test battery 36 of 36, run twice · a note file written to disk survives a reboot word-for-word · the file service can be killed and restarted and the file still reads back · programs run from disk. Written in Zig at the lowest level, with a documented path for Rust and C++ programs on top.</div>
+      <div class="links">
+        <a class="primary" href="https://github.com/IN8torious/n8torious-ai_portfolio">THE REPOSITORY</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="project">
+    <h2>N8torious Agent Toolbox<span class="tag">PUBLIC KIT</span></h2>
+    <div class="wide">
+      <p><b>What it is.</b> Everything behind the AI crew, packaged so other builders can make their own: profiles for 15 agents, the full roster, a written constitution, the human-approval protocol (the Gate), blueprints, templates — and the working engine itself.</p>
+      <p><b>Why it exists.</b> AI agents with rules shouldn't be a secret. Take the kit, build your own crew — the rules travel with it.</p>
+      <p><b>RingFlow.</b> The kit's workflow engine: agents pass work around a ring of stations, and every claim a step makes is checked word-for-word against the Bible before the work may move on. A false claim isn't argued with — the step simply doesn't happen. 29 of 29 tests pass.</p>
+      <div class="arch"><b>HOW IT WORKS</b><br>Each agent works independently — there is no central boss · every proposal waits for a human yes · the engine in the kit passes its own test suite straight from the packaged copy.</div>
+      <div class="links">
+        <a class="primary" href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/agent-toolbox">OPEN THE TOOLBOX</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="project">
+    <h2>Alchemedies + ALTIMINAC<span class="tag">A THEORY YOU CAN RUN</span></h2>
+    <div class="cols">
+      <div>
+        <p><b>What it is.</b> A theory of how thinking works, written as physical laws — in this model, simulated physics does the reasoning. The laws are collected in a book (Alchemedies), and ALTIMINAC is a working fluid simulation that runs them: real fluid motion, buoyancy, and resonance, live on screen.</p>
+        <p><b>Why it exists.</b> Today's AI spends computing power token by token. A physical system, once set in motion, keeps computing for free.</p>
+        <div class="arch"><b>PROOF</b><br>Verified 14 out of 14 in testing — including fluid layers forming exactly where the theory says they should.</div>
+        <div class="links">
+          <a class="primary" href="https://github.com/IN8torious/n8torious-ai_portfolio/blob/main/projects/alchemedies/ALCHEMEDIES-THEORY-OF-LAWS.md">THE LAW BOOK</a>
+          <a href="https://github.com/IN8torious/n8torious-ai_portfolio/tree/main/projects/altiminac">THE INSTRUMENT</a>
+        </div>
+      </div>
+      <div><img class="shot" src="img/altiminac.png" alt="ALTIMINAC running — motes stratifying in the fluid tank" loading="lazy"></div>
+    </div>
+  </article>
+
+  <div class="links" style="justify-content:center;margin-top:44px">
+    <a class="primary" href="https://github.com/IN8torious/n8torious-ai_portfolio/releases/tag/v2.0.0">THE FULL RELEASE — v2.0.0</a>
+    <a href="https://github.com/IN8torious/n8torious-ai_portfolio">THE REPOSITORY</a>
+  </div>
+</main>
+
+<footer>
+  N8TORIOUS AI · Nathan Brown · Brunswick, Ohio<br>
+  <a href="privacy.html">Privacy</a> · <a href="https://github.com/IN8torious/n8torious-ai_portfolio">GitHub</a> ·
+  <a href="https://raijinsocial.com">Raijin Social</a> · <a href="https://deepalchemy.ai">Deep Alchemy</a><br>
+  Sovereign software. Built solo. Owned by its users.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+{
+  "format": "site-telemetry/1",
+  "generated": "2026-11-02T21:08:48Z",
+  "site": {
+    "domain": "n8toriousai.com",
+    "owner": "Nathan Brown \u2014 a solo developer from Brunswick, Ohio (brand: N8toriousAi)",
+    "hosting": "Cloudflare Pages \u2014 deployment is a MANUAL upload of the site zip by the owner. This repo being updated does not change the live site.",
+    "repo": "https://github.com/IN8torious/n8toriousai.com"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 22556,
+      "sha256": "f16d4895d5ddec25",
+      "role": "The page. Act 1: framed world stage (nothing overlays the world). Act 2: the proof \u2014 stats strip + one article per project."
+    },
+    {
+      "path": "world.html",
+      "bytes": 907974,
+      "sha256": "000bcde46296a9c1",
+      "role": "The living 3D galaxy (Harakiri Unified build) shown in the Act 1 frame. Site copy only: gaze auto-inspect is disabled here so panels open on click, never on their own. The canonical build lives with the SI Core work, untouched."
+    },
+    {
+      "path": "privacy.html",
+      "bytes": 6777,
+      "sha256": "305179ee1f31d364",
+      "role": "Privacy policy (Temple / Play). FROZEN \u2014 do not edit; the Play listing depends on its wording."
+    },
+    {
+      "path": "temple-1.0.apk",
+      "bytes": 2058112,
+      "sha256": "873ac5e6ad4d38d6",
+      "role": "Temple \u2014 Daily Bible, Android install file (binary; linked from the Temple article)."
+    },
+    {
+      "path": "capsuleos.apbx",
+      "bytes": 3185705,
+      "sha256": "d9c72f43e46735ce",
+      "role": "CapsuleOS playbook v0.1.0 (binary; linked from the Capsule Toolbox article)."
+    },
+    {
+      "path": "img/ball.png",
+      "bytes": 180326,
+      "sha256": "3f0f971b70df6052",
+      "role": "SI Core article image \u2014 the Ball."
+    },
+    {
+      "path": "img/prototype.png",
+      "bytes": 202929,
+      "sha256": "6d8c7f1539a55ea0",
+      "role": "PoeTchi article image \u2014 the Complete Prototype."
+    },
+    {
+      "path": "img/altiminac.png",
+      "bytes": 244575,
+      "sha256": "615472aa93ee6452",
+      "role": "Alchemedies article image \u2014 ALTIMINAC running."
+    },
+    {
+      "path": "img/onion.png",
+      "bytes": 154419,
+      "sha256": "63b1eb4fabe1c28b",
+      "role": "Spare image (the Onion), not currently placed."
+    }
+  ],
+  "pageFacts": {
+    "articles": 9,
+    "hero": "Framed stage: brand bar, world at 60svh with zero overlays, action strip below. Verified by screenshot (desktop + portrait).",
+    "statsStrip": "27,811 lines (v2.0.0 release, scoped) \u00b7 19,652 PoeTchi checks / 0 failures \u00b7 10 kernels (9 packaged + Nimbusis) \u00b7 29 languages \u00b7 66 Bible books \u00b7 0 trackers",
+    "plainLanguage": "Full clarity pass applied 2026-11-02 \u2014 no insider jargon without an in-line explanation."
+  },
+  "hardRules": [
+    "privacy.html is frozen. Do not edit it.",
+    "world.html: keep gaze auto-inspect disabled (search 'gaze auto-inspect OFF'). Click-to-inspect must stay.",
+    "Numbers on the page are counted, not rounded. If a number changes, recount from its source first (see TELEMETRY regen + article notes).",
+    "Deploy = owner uploads the zip to Cloudflare Pages. Never claim the live site changed from a repo or zip change.",
+    "The owner's own work credits the brand N8toriousAi, never a personal name, in lineage contexts."
+  ]
+}
